@@ -1,4 +1,5 @@
 import Image from "next/image";
+
 export default function Spotlight({ artPieces, pickRandomArtPiece }) {
   const randomArtPiece = pickRandomArtPiece(artPieces);
 
