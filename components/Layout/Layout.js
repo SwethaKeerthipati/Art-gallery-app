@@ -2,10 +2,10 @@
 import React from "react";
 import Navigation from "../Navigation/Navigation";
 
-const Layout = ({ children }) => {
+const Layout = ({ children, artPieces }) => {
   return (
     <div>
-      <Navigation />
+      <Navigation artPieces={artPieces} />
       {children}
     </div>
   );

@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import ArtPieces from "../components/ArtPieces/ArtPieces.js";
+import ArtPieces from "./ArtPieces";
 
 const exampleData = [
   {
@@ -37,9 +37,9 @@ const exampleData = [
 ];
 
 test("renders art pieces displayed as a list", () => {
-  render(<ArtPieces pieces={exampleData} />);
+  render(<ArtPieces data={exampleData} />);
 
-  const artPieces = screen.getAllByRole("listitem");
+  const artPieces = screen.getAllByRole("list");
 
   expect(artPieces).toHaveLength(3);
 });

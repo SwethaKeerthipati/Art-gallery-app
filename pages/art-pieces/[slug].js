@@ -19,6 +19,8 @@ export default function ArtPiecePage({ data: pieces }) {
         artist={piece.artist}
         year={piece.year}
         genre={piece.genre}
+        isFavorite={piece.favorite}
+        onToggleFavorite={() => toggleFavorite(piece.slug)}
       />
     </div>
   );
