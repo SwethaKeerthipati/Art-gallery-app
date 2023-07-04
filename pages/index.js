@@ -10,12 +10,18 @@ export default function SpotlightPage({ data }) {
     const randomIndex = Math.floor(Math.random() * artPieces.length);
     return artPieces[randomIndex];
   };
-
+  const toggleFavorite = (slug) => {
+    // console.log("Toggle favorite:", slug);
+  };
   return (
     <div>
       {/* <ArtPieces pieces={data} /> */}
-      <Spotlight artPieces={data} pickRandomArtPiece={pickRandomArtPiece} />
-      <FavoriteButton />
+      <Spotlight
+        artPieces={data}
+        pickRandomArtPiece={pickRandomArtPiece}
+        // isFavorite={isFavorite}
+        toggleFavorite={toggleFavorite}
+      />
     </div>
   );
 }

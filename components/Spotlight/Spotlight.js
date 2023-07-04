@@ -10,19 +10,15 @@ export default function Spotlight({
   toggleFavorite,
 }) {
   // console.log(artPieces);
+  const { imageSource, artist, slug } = pickRandomArtPiece(artPieces) || {};
   // console.log(pickRandomArtPiece);
-  // const { imageSource, artist } = pickRandomArtPiece(artPieces) || {};
-  // const artistName = artist || "Unknown Artist";
-  // console.log(imageSource);
-  const randomArtPiece = pickRandomArtPiece(artPieces);
-  const { imageSource, artist, slug } = randomArtPiece || {};
   const artistName = artist || "Unknown Artist";
+  // console.log(imageSource);
 
   const handleToggleFavorite = () => {
-    if (typeof toggleFavorite === "function") {
-      toggleFavorite(slug);
-    }
+    toggleFavorite(slug);
   };
+  // console.log(toggleFavorite);
 
   return (
     <div>

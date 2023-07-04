@@ -17,7 +17,6 @@
 
 import { useRouter } from "next/router";
 import Link from "next/link";
-// import Spotlight from "../Spotlight/Spotlight";
 
 export default function Navigation({ artPieces }) {
   const router = useRouter();
