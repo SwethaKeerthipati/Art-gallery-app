@@ -29,7 +29,9 @@
 
 import GlobalStyle from "../styles";
 import useSWR from "swr";
-import { ArtPiecesProvider } from "./ArtPiecesContext";
+// import styled from "styled-components";
+// import ImageGrid from "../components/ImageGrid";
+import { ArtPiecesProvider } from "../components/ArtPiecesContext/ArtPiecesContext";
 // import Navigation from "../components/Navigation/Navigation";
 import Layout from "../components/Layout/Layout";
 // import SpotlightPage from "./index";
@@ -48,6 +50,7 @@ export default function App({ Component, pageProps }) {
       <GlobalStyle />
       <Layout>
         <Component {...pageProps} data={data} />
+        {/* <ImageGrid images={data} /> */}
       </Layout>
     </ArtPiecesProvider>
   );
