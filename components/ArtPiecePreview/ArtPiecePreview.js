@@ -7,6 +7,8 @@ import styled from "styled-components";
 
 const ArtPieceContainer = styled.div`
   background-color: ${(props) => props.backgroundColor};
+  width: 360px;
+  height: 500px;
   position: relative;
   padding: 20px;
   margin: 20px;
@@ -69,7 +71,7 @@ export default function ArtPiecePreview({
     <GridContainer>
       {/* <ArtPiecePreviewWrapper> */}
       <ArtPieceContainer backgroundColor={backgroundColor}>
-        <ArtPieceImage src={image} alt={title} width={500} height={500} />
+        <ArtPieceImage src={image} alt={title} width={300} height={300} />
         <Title>Title : {title}</Title>
         <Artist>Artist: {artist}</Artist>
         <FlexContainer>

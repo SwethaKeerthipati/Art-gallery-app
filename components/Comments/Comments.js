@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 const CommentsContainer = styled.div`
   position: relative;
-  margin-left: 80px;
+  margin-left: 40px;
   /* padding: 20px;
   margin: 10px; */
   /* display: flex;
