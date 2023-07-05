@@ -1,29 +1,12 @@
-// import React from "react";
-// import Link from "next/link";
-// import Router from "next/router";
-
-// export default function Navigation() {
-//   return (
-//     <nav>
-//       <li>
-//         <Link href="/">Spotlight</Link>
-//       </li>
-//       <li>
-//         <Link href="/art-pieces">Art Pieces</Link>
-//       </li>
-//     </nav>
-//   );
-// }
-
 import { useRouter } from "next/router";
 import Link from "next/link";
 import styled from "styled-components";
 
 const NavContainer = styled.nav`
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
-  background-color: #f5f5f5;
+  background-color: lightskyblue;
   padding: 10px;
   gap: 20px;
   font-weight: bold;
