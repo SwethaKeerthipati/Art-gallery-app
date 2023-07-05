@@ -1,7 +1,9 @@
 import React from "react";
 import Image from "next/image";
-
 import FavoriteButton from "../FavoriteButton/FavoriteButton";
+import CommentForm from "../CommentForm/CommentForm";
+import Comments from "../Comments/Comments";
+import { useState } from "react";
 
 export default function Spotlight({
   artPieces,
@@ -9,16 +11,24 @@ export default function Spotlight({
   isFavorite,
   toggleFavorite,
 }) {
-  // console.log(artPieces);
   const { imageSource, artist, slug } = pickRandomArtPiece(artPieces) || {};
-  // console.log(pickRandomArtPiece);
   const artistName = artist || "Unknown Artist";
-  // console.log(imageSource);
+  const [artPiecesInfo, setArtPiecesInfo] = useState(artPieces);
 
   const handleToggleFavorite = () => {
-    toggleFavorite(slug);
+    if (typeof toggleFavorite === "function") {
+      toggleFavorite(slug);
+    }
   };
-  // console.log(toggleFavorite);
+  const handleCommentSubmit = (comment) => {
+    setArtPiecesInfo((prevState) => ({
+      ...prevState,
+      [slug]: {
+        ...prevState[slug],
+        comments: [...(prevState[slug]?.comments || []), comment],
+      },
+    }));
+  };
 
   return (
     <div>
@@ -36,6 +46,8 @@ export default function Spotlight({
         isFavorite={isFavorite}
         onToggleFavorite={handleToggleFavorite}
       />
+      <CommentForm onSubmitComment={handleCommentSubmit} />
+      <Comments comments={artPiecesInfo[slug]?.comments || []} />
     </div>
   );
 }
