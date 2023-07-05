@@ -6,7 +6,12 @@ import Layout from "../components/Layout/Layout";
 import { useImmerLocalStorageState } from "../lib/hook/useImmerLocalStorageState";
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
-export default function App({ Component, pageProps, artPieces }) {
+export default function App({
+  Component,
+  pageProps,
+  artPieces,
+  toggleFavorite,
+}) {
   const [artPiecesInfo, updateArtPiecesInfo] = useImmerLocalStorageState(
     "art-pieces-info",
     { defaultValue: [] }
@@ -21,7 +26,13 @@ export default function App({ Component, pageProps, artPieces }) {
     <SWRConfig value={{ fetcher }}>
       <GlobalStyle />
       <Layout artPieces={artPieces}>
-        <Component {...pageProps} data={data} />
+        <Component
+          {...pageProps}
+          data={data}
+          toggleFavorite={toggleFavorite}
+          artPiecesInfo={artPiecesInfo}
+          updateArtPiecesInfo={updateArtPiecesInfo}
+        />
       </Layout>
     </SWRConfig>
   );

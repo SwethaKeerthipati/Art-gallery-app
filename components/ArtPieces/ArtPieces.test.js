@@ -37,9 +37,9 @@ const exampleData = [
 ];
 
 test("renders art pieces displayed as a list", () => {
-  render(<ArtPieces data={exampleData} />);
+  render(<ArtPieces pieces={exampleData} />);
 
-  const artPieces = screen.getAllByRole("list");
+  const artPieces = screen.getAllByTestId("art-piece");
 
-  expect(artPieces).toHaveLength(3);
+  expect(artPieces).toHaveLength(exampleData.length);
 });

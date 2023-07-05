@@ -14,11 +14,29 @@ export default function ArtPieces({ pieces, handleCommentSubmit }) {
   const [favorites, setFavorites] = useState({});
 
   const toggleFavorite = (slug) => {
-    setFavorites((prevFavorites) => ({
-      ...prevFavorites,
-      [slug]: !prevFavorites[slug],
-    }));
+    const updatedFavorites = { ...favorites };
+    updatedFavorites[slug] = !updatedFavorites[slug];
+    setFavorites(updatedFavorites);
   };
+
+  // const toggleFavorite = (slug) => {
+  //   const updatedPieces = pieces.map((piece) => {
+  //     if (piece.slug === slug) {
+  //       return {
+  //         ...piece,
+  //         isFavorite: !piece.isFavorite,
+  //       };
+  //     }
+  //     return piece;
+  //   });
+  //   setFavorites((prevFavorites) => ({
+  //     ...prevFavorites,
+  //     [slug]: !prevFavorites[slug],
+  //   }));
+  //   // Update artPiecesInfo or perform any other necessary actions
+  //   // For example:
+  //   // updateArtPiecesInfo(updatedPieces);
+  // };
 
   if (!Array.isArray(pieces)) {
     return <div>No art pieces available.</div>;
@@ -27,7 +45,7 @@ export default function ArtPieces({ pieces, handleCommentSubmit }) {
   return (
     <Container>
       {pieces.map((piece) => (
-        <div key={piece.slug}>
+        <div key={piece.slug} data-testid="art-piece">
           <ArtPiecePreview
             image={piece.imageSource}
             title={piece.name}

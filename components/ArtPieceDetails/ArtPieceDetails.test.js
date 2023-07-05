@@ -3,12 +3,12 @@ import ArtPieceDetails from "./ArtPieceDetails";
 import React from "react";
 
 test("displays image, title, artist, year, genre of art piece", () => {
-  const mockUseContext = jest.fn();
-  mockUseContext.mockReturnValue({
-    artPiecesInfo: {},
-    setArtPieceInfo: () => {},
-  });
-  React.useContext = mockUseContext;
+  // const mockUseContext = jest.fn();
+  // mockUseContext.mockReturnValue({
+  //   artPiecesInfo: {},
+  //   setArtPieceInfo: () => {},
+  // });
+  // React.useContext = mockUseContext;
   render(
     <ArtPieceDetails
       artist="Min An"
@@ -18,14 +18,18 @@ test("displays image, title, artist, year, genre of art piece", () => {
       genre="Nature"
     />
   );
-  const image = screen.getByAltText("Min An: Silhouette Photo of Trees");
-  const artist = screen.getByText("Min An");
+  // const image = screen.getByAltText("Min An: Silhouette Photo of Trees");
+  const image = screen.getByAltText("Silhouette Photo of Trees");
+
+  // const artist = screen.getByText("Min An");
+  const artist = screen.getByText(/Artist: Min An/i);
   const title = screen.getByRole("heading", {
     level: 2,
     name: "Silhouette Photo of Trees",
   });
-  const year = screen.getByText("2017");
-  const genre = screen.getByText("Nature");
+  // const year = screen.getByText("2017");
+  const year = screen.getByText(/Year: 2017/i);
+  const genre = screen.getByText(/Genre: Nature/i);
   // const backButton = screen.getByRole("button", { name: "navigate back" });
 
   expect(image).toHaveAttribute(

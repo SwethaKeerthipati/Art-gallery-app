@@ -1,7 +1,7 @@
 import React from "react";
 import ArtPieces from "../../components/ArtPieces/ArtPieces";
 
-export default function ArtsPiecesPage({ data }) {
+export default function ArtsPiecesPage({ data, toggleFavorite }) {
   const handleCommentSubmit = (slug, comment) => {
     const pieceIndex = data.findIndex((piece) => piece.slug === slug);
     if (pieceIndex !== -1) {
@@ -15,7 +15,12 @@ export default function ArtsPiecesPage({ data }) {
   };
   return (
     <>
-      <ArtPieces pieces={data} handleCommentSubmit={handleCommentSubmit} />
+      {/* <ArtPieces pieces={data} handleCommentSubmit={handleCommentSubmit} /> */}
+      <ArtPieces
+        pieces={data}
+        toggleFavorite={toggleFavorite}
+        handleCommentSubmit={handleCommentSubmit}
+      />
     </>
   );
 }
