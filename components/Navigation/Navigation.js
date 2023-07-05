@@ -24,6 +24,9 @@ export default function Navigation({ artPieces }) {
   return (
     <nav>
       <li>
+        <Link href="/favorites">My Favorites</Link>
+      </li>
+      <li>
         <Link href="/art-pieces">Art Pieces</Link>
       </li>
       <li>

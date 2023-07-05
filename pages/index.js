@@ -1,6 +1,7 @@
 import React from "react";
 import Spotlight from "../components/Spotlight/Spotlight";
 import FavoriteButton from "../components/FavoriteButton/FavoriteButton";
+import FavoritesPage from "../pages/favorites/favorites";
 
 export default function SpotlightPage({ data }) {
   const pickRandomArtPiece = (artPieces) => {
@@ -22,6 +23,7 @@ export default function SpotlightPage({ data }) {
         // isFavorite={isFavorite}
         toggleFavorite={toggleFavorite}
       />
+      {/* <FavoritesPage /> */}
     </div>
   );
 }
