@@ -1,8 +1,13 @@
 import React from "react";
-import Router, { useRouter } from "next/router";
+
 import Image from "next/image";
 import Link from "next/link";
+import styled from "styled-components";
 import FavoriteButton from "../FavoriteButton/FavoriteButton";
+
+// const ArtPieceContainer = styled.div`
+//   background-color: ${(props) => props.backgroundColor};
+// `;
 
 export default function ArtPieceDetails({
   image,
@@ -10,11 +15,15 @@ export default function ArtPieceDetails({
   artist,
   year,
   genre,
+  colors,
   isFavorite,
   onToggleFavorite,
 }) {
+  // const backgroundColor = colors[0];
+
   return (
     <div>
+      {/* <ArtPieceContainer backgroundColor={backgroundColor}> */}
       <Link href="/art-pieces">⬅️All Paintings</Link>
       <Image src={image} alt={title} width={500} height={500} />
       <h2>{title}</h2>
@@ -25,6 +34,7 @@ export default function ArtPieceDetails({
         isFavorite={isFavorite}
         onToggleFavorite={onToggleFavorite}
       />
+      {/* </ArtPieceContainer> */}
     </div>
   );
 }

@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import FavoriteButton from "../FavoriteButton/FavoriteButton";
+import CommentForm from "../CommentForm/CommentForm";
 
 export default function ArtPiecePreview({
   image,
@@ -9,11 +10,10 @@ export default function ArtPiecePreview({
   artist,
   slug,
   isFavorite,
-  toggleFavorite,
 }) {
   const handleToggleFavorite = () => {
-    if (typeof toggleFavorite === "function") {
-      toggleFavorite(slug);
+    if (typeof onToggleFavorite === "function") {
+      onToggleFavorite(slug);
     }
   };
   return (
@@ -26,6 +26,9 @@ export default function ArtPiecePreview({
         isFavorite={isFavorite}
         onToggleFavorite={handleToggleFavorite}
       />
+      {/* <CommentForm
+        onSubmitComment={(comment) => handleCommentSubmit(comment)}
+      /> */}
     </div>
   );
 }
