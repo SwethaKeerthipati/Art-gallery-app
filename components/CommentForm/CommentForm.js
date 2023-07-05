@@ -1,4 +1,31 @@
 import React, { useState } from "react";
+import styled from "styled-components";
+
+const Form = styled.form`
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  justify-content: space-evenly;
+`;
+
+const Input = styled.input`
+  padding: 5px;
+`;
+
+const TextArea = styled.textarea`
+  padding: 5px;
+  width: 50%;
+  height: 50px;
+  resize: vertical;
+`;
+
+const SubmitButton = styled.button`
+  background-color: #000;
+  color: #fff;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+`;
 
 export default function CommentForm({ onSubmitComment }) {
   const [comment, setComment] = useState("");
@@ -17,14 +44,14 @@ export default function CommentForm({ onSubmitComment }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
+    <Form onSubmit={handleSubmit}>
+      <TextArea
         type="text"
         value={comment}
         onChange={handleChange}
-        placeholder="Add a comment"
+        placeholder="Add your comments"
       />
-      <button type="submit">Submit</button>
-    </form>
+      <SubmitButton type="submit">Submit</SubmitButton>
+    </Form>
   );
 }

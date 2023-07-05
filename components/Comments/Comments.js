@@ -1,8 +1,20 @@
 import React from "react";
+import styled from "styled-components";
+const CommentsContainer = styled.div`
+  position: relative;
+  margin-left: 80px;
+  /* padding: 20px;
+  margin: 10px; */
+  /* display: flex;
+  flex-direction: column; */
+  /* align-items: center;
+  text-align: center; */
+`;
 
 export default function Comments({ comments }) {
+  console.log("comments:", comments);
   return (
-    <div>
+    <CommentsContainer>
       <h3>Comments</h3>
       {comments.length === 0 ? (
         <p>No comments yet.</p>
@@ -13,6 +25,6 @@ export default function Comments({ comments }) {
           ))}
         </ul>
       )}
-    </div>
+    </CommentsContainer>
   );
 }

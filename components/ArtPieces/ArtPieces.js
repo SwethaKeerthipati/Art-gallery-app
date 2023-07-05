@@ -1,6 +1,14 @@
 import React, { useState } from "react";
 import ArtPiecePreview from "../ArtPiecePreview/ArtPiecePreview";
 import CommentForm from "../CommentForm/CommentForm";
+import styled from "styled-components";
+import Comments from "../Comments/Comments";
+
+const Container = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+`;
 
 export default function ArtPieces({ pieces, handleCommentSubmit }) {
   const [favorites, setFavorites] = useState({});
@@ -17,7 +25,7 @@ export default function ArtPieces({ pieces, handleCommentSubmit }) {
   }
 
   return (
-    <div>
+    <Container>
       {pieces.map((piece) => (
         <div key={piece.slug}>
           <ArtPiecePreview
@@ -29,6 +37,7 @@ export default function ArtPieces({ pieces, handleCommentSubmit }) {
             toggleFavorite={() => toggleFavorite(piece.slug)}
             colors={piece.colors}
           />
+          <Comments comments={piece.comments || []} />
           <CommentForm
             onSubmitComment={(comment) =>
               handleCommentSubmit(piece.slug, comment)
@@ -36,6 +45,6 @@ export default function ArtPieces({ pieces, handleCommentSubmit }) {
           />
         </div>
       ))}
-    </div>
+    </Container>
   );
 }

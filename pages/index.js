@@ -14,12 +14,16 @@ export default function SpotlightPage({ data }) {
   const toggleFavorite = (slug) => {
     // console.log("Toggle favorite:", slug);
   };
+  const randomArtPiece = pickRandomArtPiece(data);
+  const colors = randomArtPiece?.colors || [];
+
   return (
     <div>
       {/* <ArtPieces pieces={data} /> */}
       <Spotlight
         artPieces={data}
         pickRandomArtPiece={pickRandomArtPiece}
+        colors={colors}
         // isFavorite={isFavorite}
         toggleFavorite={toggleFavorite}
       />

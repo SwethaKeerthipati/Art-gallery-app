@@ -1,10 +1,9 @@
 import GlobalStyle from "../styles";
 import useSWR from "swr";
 import { SWRConfig } from "swr";
-// import { ArtPiecesProvider } from "../components/ArtPiecesContext/ArtPiecesContext";
-import Layout from "../components/Layout/Layout";
-import { useImmerLocalStorageState } from "./useImmerLocalStorageState";
 
+import Layout from "../components/Layout/Layout";
+import { useImmerLocalStorageState } from "../lib/hook/useImmerLocalStorageState";
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 export default function App({ Component, pageProps, artPieces }) {

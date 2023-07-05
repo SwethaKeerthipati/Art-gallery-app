@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import ArtPieceDetails from "../../components/ArtPieceDetails/ArtPieceDetails";
+import styled from "styled-components";
 
 export default function ArtPiecePage({ data: pieces }) {
   const router = useRouter();
